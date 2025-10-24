@@ -1,0 +1,87 @@
+
+import java.util.Scanner;
+
+public class calculator {
+    public static void main(String[] args) {
+        System.out.println("Simple Calculator Using Java..");
+        Scanner sc = new Scanner(System.in);
+        int num1;
+        int num2;
+        int result = 0;
+        char operation ;
+
+        //Select The Operation
+        System.out.print("Select The Operation:\n\n " +
+                "1. + for Addition\n" +
+                "2.- for Substraction \n" +
+                "3.* for Multiplication \n" +
+                "4./ for Division\n" +
+                "5.! for Factorial of Number \n" +
+                "6.$ to check Given Number is Even Or Odd\n");
+
+
+        System.out.println("Kindly Enter Twice The Same Number For Factorail and E/O");
+        System.out.print("\nEnter the Operator: ");
+        operation = sc.next().charAt(0);
+
+        //Getting Input of First Number..
+        System.out.print("\nEnter The First Number : ");
+        num1 = sc.nextInt();
+
+        //Getting Input Of Second Number..
+        System.out.print("Enter The Second Number :");
+        num2 = sc.nextInt();
+
+        //Getting the Operator to Perform Operation
+        switch (operation) {
+
+            case '+':
+                result = num1 + num2;
+                System.out.println("Sum is : "+result);
+                break;
+
+            case '-':
+                result = num1 - num2;
+                System.out.println("Sub is : "+result);
+                break;
+
+            case '*':
+                result = num1 * num2;
+                System.out.println("multiplication is : "+result);
+                break;
+
+            case '/':
+                //Handeling The Division by Zero
+                if (num2 != 0) {
+                    result = num1 / num2;
+                    System.out.println("Division is : "+result);
+                }
+                break;
+
+            //To get Factorial of Num1
+            case '!':
+                int fact = 1;
+                for (int i = 1; i <= num1; i++) {
+                    fact = fact * i;
+                }
+                System.out.println("Factorail is : "+fact);
+                  break;
+
+
+                //To Check num is Even or Odd
+            case '$':
+                if (num1 % 2 == 0) {
+                    System.out.println("Number is Even..");
+                } else {
+                    System.out.println("Number is Odd..");
+                }
+
+            default:
+                System.out.println("Kindly Enter The Valid NUmber..");
+                break;
+        }
+
+    }
+
+
+}
